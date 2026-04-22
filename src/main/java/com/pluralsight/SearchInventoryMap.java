@@ -9,8 +9,7 @@ public class SearchInventoryMap {
     private static final String CVS_File = "inventory.csv";
 
 
-    public static HashMap<Integer, Product> inventory =
-            new HashMap<Integer, Product>();
+    public static HashMap<Integer, Product> inventory = new HashMap<Integer, Product>();
 
     public static void main(String[] args) {
         // this method loads product objects into inventory
@@ -22,9 +21,7 @@ public class SearchInventoryMap {
 
         Scanner scanner = new Scanner(System.in);
 
-
-
-        while (true){
+        while (true) {
             System.out.print("What item # are you interested in? ");
             int id = scanner.nextInt();
             scanner.nextLine();
@@ -34,19 +31,18 @@ public class SearchInventoryMap {
             if (matchedProduct == null) {
                 System.out.println("We don't carry that product");
             } else {
-                System.out.printf("We carry %s and the price is $%.2f",
-                        matchedProduct.getName(), matchedProduct.getPrice());
+                System.out.printf("We carry %s and the price is $%.2f", matchedProduct.getName(), matchedProduct.getPrice());
             }
             System.out.println();
             System.out.println("Do you want to Stop?(y to quit) ");
             String input = scanner.nextLine();
-            if (input.equalsIgnoreCase("y")){
+            if (input.equalsIgnoreCase("y")) {
                 return;
             }
         }
     }
 
-    private static void loadInventory(){
+    private static void loadInventory() {
 
         String line;
 
@@ -60,8 +56,8 @@ public class SearchInventoryMap {
                 String name = divider[1];
                 double price = Double.parseDouble(divider[2]);
 
-                Product product = new Product(id,name,price);
-                inventory.put(id,product);
+                Product product = new Product(id, name, price);
+                inventory.put(id, product);
             }
 
         } catch (Exception ex) {
